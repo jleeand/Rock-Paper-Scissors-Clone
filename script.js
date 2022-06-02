@@ -9,7 +9,7 @@ function getUserChoice() {
 }
 
 function getRobotChoice() {
-    let choices =  {
+    let choices =  { 
         1 : "rock",
         2 : "paper",
         3 : "scissors"
@@ -30,21 +30,31 @@ function getWinner(userChoice, robotChoice) {
        
         if(robotChoice == "rock") {
             console.log("You win)")
+            userWins++
         }
-        else(console.log("You lose!"))
+        else {
+            console.log("You lose!")
+            robotWins++
+        }   
     }
     else if(userChoice == "rock") {
        if(robotChoice == "paper") {
            console.log("You win!")
+           userWins++
        }
-       else(console.log("You lose!"))
+       else {
+           console.log("You lose!")
+           robotWins++
+        }   
     }
     else {
         if(robotChoice == "rock") {
             console.log("You win!")
+            userWins++
         }
         else {
             console.log("You lose!")
+            robotWins++
         }
     }
 }
