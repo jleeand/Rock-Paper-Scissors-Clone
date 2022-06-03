@@ -1,0 +1,69 @@
+* {
+    color: #d8737f;
+}
+
+html { 
+    margin: 0;
+    padding: 0;
+    background-color: #475c7a;
+   
+}
+
+
+img {
+    background-color: #475c7a;
+}
+
+.card img:hover {
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.5);
+    border-radius: 25%;
+}
+
+button {
+    background-color: #475c7a;
+    border: none;
+}
+#game-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#choices {
+    display: flex;
+    flex-direction: row;
+}
+
+#results-container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+}
+
+.userImage {
+    margin-top: 5em;
+    flex: 1;
+    max-width: 20%;
+    max-height: 20%;
+  
+}
+
+.robotImage {
+    margin-top: 5em;
+    flex: 1;
+    max-width: 20%;
+    max-height: 20%;
+}
+
+.card-left {
+    background-color: #685d79;
+    border-radius: 25%;
+    display: inline;
+    color: whitesmoke;
+    padding: 10px;
+    max-width: max-content;
+    min-width: max-content;
+    text-align: center;
+   
+}
