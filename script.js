@@ -1,98 +1,149 @@
 let userWins = 0
 let robotWins = 0
 
+let resultsP = document.querySelector("#results")
 
-function getUserChoice() {
-
-    return prompt("Please enter a choice or input q to quit").toLowerCase()
-
-}
-
-function getRobotChoice() {
-    let choices =  { 
-        1 : "rock",
-        2 : "paper",
-        3 : "scissors"
-    };
-
-    let robotChoice = choices[Math.round(Math.random() * 2 + 1)]
-    return robotChoice;
-
-}
 
 function getWinner(userChoice, robotChoice) {
 
     if (userChoice == robotChoice) {
-        console.log("tie!")
+        resultsP.textContent = "Draw!"
     }
 
-    else if(userChoice == "paper") {
+    else if(userChoice == "Ice") {
        
-        if(robotChoice == "rock") {
-            console.log("You win)")
-            userWins++
+        if(robotChoice == "Fire") {
+            resultsP.textContent = "You lose!"
+            robotWins++
         }
         else {
-            console.log("You lose!")
-            robotWins++
+            resultsP.textContent = "You win!"
+            userWins++
         }   
     }
-    else if(userChoice == "rock") {
-       if(robotChoice == "paper") {
-           console.log("You win!")
-           userWins++
+    else if(userChoice == "Fire") {
+       if(robotChoice == "Water") {
+           resultsP.textContent = "You lose!"
+           robotWins++
        }
        else {
-           console.log("You lose!")
-           robotWins++
+           resultsP.textContent = "You win!"
+           userWins++
         }   
     }
     else {
-        if(robotChoice == "rock") {
-            console.log("You win!")
+        if(robotChoice == "Fire") {
+            resultsP.textContent = "You win!"
             userWins++
         }
         else {
-            console.log("You lose!")
+            resultsP.textContent = "You lose!"
             robotWins++
         }
     }
 }
 
-function game(){
+// game()
 
-    console.log("Welcome to Rock paper scissors!")
-    console.log("Rock beats scissors, scissors beats paper, and paper beats rock.")
+let userChoice;
+let robotChoice;
 
-    let wantsToPlayAgain = true;
+const fireBTN = document.querySelector("#fire")
+
+
+fireBTN.addEventListener('click', () => {
+
+
+    updateUserChoice("Fire");
+    updateRobotChoice();
+
+    getWinner(userChoice,robotChoice)
+    checkIfWin();
+
+
+
+    userChoice = ""
+    robotChoice = ""
+
+
+})
+
+const iceBTN = document.querySelector("#ice")
+
+iceBTN.addEventListener('click', ()  => {
     
-    while(wantsToPlayAgain) {
-
-        let userChoice = getUserChoice()
-
-        if(userChoice == 'q') {
-            wantsToPlayAgain = false
-            continue
-        }
-
-        let robotChoice = getRobotChoice()
-
-        console.log("user : " + userChoice)
-        console.log("robot :" + robotChoice)
+    updateUserChoice("Ice")
+    updateRobotChoice();
 
 
-        getWinner(userChoice,robotChoice)
+    getWinner(userChoice,robotChoice)
+    checkIfWin();
+   
 
-        userChoice = ""
-        robotChoice = ""
+    userChoice = ""
+    robotChoice = ""
 
-    }
+})
 
-    console.log("Game over!")
-    console.log("Stats:")
-    console.log("User wins : " + userWins)
-    console.log("Robot wins : " + robotWins)
 
+const waterBTN = document.querySelector("#water")
+
+waterBTN.addEventListener('click', () => {
+   
+    updateUserChoice("Water")
+    updateRobotChoice();
+
+
+    getWinner(userChoice,robotChoice)
+    checkIfWin();
+    
+
+
+    userChoice = ""
+    robotChoice = ""
+
+
+
+})
+
+
+function updateUserChoice(type) {
+    userChoice = String(type)
+    console.log(`user choice:  ${type}`)
+    
 }
 
-game()
+function updateRobotChoice() {
+    let choices =  { 
+        1 : "Fire",
+        2 : "Ice",
+        3 : "Water"
+    };
+
+    robotChoice = choices[Math.round(Math.random() * 2 + 1)]
+
+    console.log(`robot choice: ${robotChoice}`)   
+}
+
+function checkIfWin() {
+
+    let userSPAN = document.querySelector("#userwins")
+    let botSPAN = document.querySelector("#botwins")
+   
+    userSPAN.textContent = userWins.toString();
+    botSPAN.textContent = robotWins.toString();
+
+    if(userWins == 5) {
+        resultsP.textContent = "You have won the game! Congrats!"
+        userWins = 0
+        robotWins = 0
+        return;
+    }
+    else if(robotWins == 5) {
+        resultsP.textContent = "You have lost the game! Way to go!"
+        userWins = 0
+        robotWins = 0
+        return;
+    }
+    else return;
+}

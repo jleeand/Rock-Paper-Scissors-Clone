@@ -5,8 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock paper scissors</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <div id="game-container">
+
+
+        <div class="card">
+
+            <button class="btn water" id="water">
+                Water
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <button class="btn fire" id="fire">
+                Fire
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <button class="btn ice" id="ice">
+                Ice
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div id="results-container">
+
+        <div class="card left">
+            <p id="results">
+                You have to play first!
+            </p>
+
+        </div>
+
+
+        <div class="card right">
+            <p>
+                User wins: <span id="userwins"></span>
+
+            </p>
+
+
+
+            <p>
+                Bot wins:  <span id="botwins"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+
+    </footer>
 </body>
 </html>
