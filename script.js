@@ -1,10 +1,50 @@
 let userWins = 0
 let robotWins = 0
+const choices = document.querySelector("#choices")
 
-let resultsP = document.querySelector("#results")
+const resultsP = document.querySelector("#results")
 
 
-function getWinner(userChoice, robotChoice) {
+function getWinner(userChoice, robotChoice) { 
+    
+
+    
+
+    let userText = userChoice.toString().toLowerCase();
+    let robotText =robotChoice.toString().toLowerCase();
+
+    let userImage = "./public/images/" + userText + ".png"
+    
+    let robotImage = "./public/images/" + robotText + ".png"
+
+
+    const uImage = document.createElement("img")
+    uImage.setAttribute('src', userImage);
+    uImage.setAttribute('class', "userImage")
+    uImage.setAttribute('height', '26%')
+    uImage.setAttribute('width', '26%')
+
+    const rImage = document.createElement("img")
+    rImage.setAttribute("class", "robotImage")
+    rImage.setAttribute('src', robotImage);
+    rImage.setAttribute('height', '26%')
+    rImage.setAttribute('width', '26%')
+
+
+    const uText = document.createElement("p")
+    uText.textContent = "Your choice"
+    uText.setAttribute("class", "choiceText")
+    uImage.append(uText);
+
+    const rText = document.createElement("p")
+    rText.textContent = "Opponets choice"
+    rImage.append(rText)
+
+    choices.appendChild(uImage);
+    choices.appendChild(uText);
+    choices.appendChild(rImage);
+    choices.appendChild(rText);
+
 
     if (userChoice == robotChoice) {
         resultsP.textContent = "Draw!"
@@ -53,9 +93,14 @@ const fireBTN = document.querySelector("#fire")
 
 fireBTN.addEventListener('click', () => {
 
+    removeChilds(choices);
+
 
     updateUserChoice("Fire");
     updateRobotChoice();
+
+
+
 
     getWinner(userChoice,robotChoice)
     checkIfWin();
@@ -71,6 +116,8 @@ fireBTN.addEventListener('click', () => {
 const iceBTN = document.querySelector("#ice")
 
 iceBTN.addEventListener('click', ()  => {
+
+    removeChilds(choices);
     
     updateUserChoice("Ice")
     updateRobotChoice();
@@ -89,6 +136,8 @@ iceBTN.addEventListener('click', ()  => {
 const waterBTN = document.querySelector("#water")
 
 waterBTN.addEventListener('click', () => {
+
+    removeChilds(choices);
    
     updateUserChoice("Water")
     updateRobotChoice();
@@ -127,8 +176,8 @@ function updateRobotChoice() {
 
 function checkIfWin() {
 
-    let userSPAN = document.querySelector("#userwins")
-    let botSPAN = document.querySelector("#botwins")
+    const userSPAN = document.querySelector("#userwins")
+    const botSPAN = document.querySelector("#botwins")
    
     userSPAN.textContent = userWins.toString();
     botSPAN.textContent = robotWins.toString();
@@ -147,3 +196,10 @@ function checkIfWin() {
     }
     else return;
 }
+
+
+const removeChilds = (parent) => {
+    while (parent.lastChild) {
+        parent.removeChild(parent.lastChild);
+    }
+};

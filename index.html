@@ -4,36 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock paper scissors</title>
+    <title>Fire Ice Water</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div id="info-container">
+        <p>Welcome to the Dojo! Select an Elment to Begin...
+        </p>
+
+
+
+    </div>
+
+
+
+
     <div id="game-container">
 
 
         <div class="card">
 
-            <button class="btn water" id="water">
+            <!-- <button class="btn water" id="water">
                 Water
+            </button> -->
+            <button id="water">
+            <img src="./public/images/water.png" alt=Water" width="22%" height="22%">
             </button>
-
         </div>
 
 
         <div class="card">
 
-            <button class="btn fire" id="fire">
+            <!-- <button class="btn fire" id="fire">
                 Fire
-            </button>
+            </button> -->
+            <button id="fire">
+                <img src="./public/images/fire.png" alt=Water" width="22%" height="22%">
+                </button>
 
         </div>
 
 
         <div class="card">
 
-            <button class="btn ice" id="ice">
+            <!-- <button class="btn ice" id="ice">
                 Ice
-            </button>
+            </button> -->
+            <button id="ice">
+                <img src="./public/images/ice.png" alt=Water" width="22%" height="22%">
+                </button>
 
         </div>
 
@@ -42,27 +63,33 @@
 
     <div id="results-container">
 
-        <div class="card left">
+        <div class="card-left">
             <p id="results">
                 You have to play first!
             </p>
 
-        </div>
 
-
-        <div class="card right">
             <p>
                 User wins: <span id="userwins"></span>
 
             </p>
-
-
 
             <p>
                 Bot wins:  <span id="botwins"></span>
             </p>
 
         </div>
+
+
+
+        <div id="choices">
+
+
+
+
+
+        </div>
+
 
     </div>
 
